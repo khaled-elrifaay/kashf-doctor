@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/jquery-ui.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="css/jquery-ui.theme.min.css" rel="stylesheet">-->
+     
+     <link href="lib/angular-ui-select/dist/select.css" rel="stylesheet">
+     <link href="css/chosen.min.css" rel="stylesheet">
+     <link href="css/isteven-multi-select.css" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v4.7.0/css/font-awesome-css.min.css">
+     
+     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+     <link rel="stylesheet" href="css/fonts.css">
+     <link href="css/styles.css" rel="stylesheet">
+<!-- <link href="css/styles/login.css" rel="stylesheet">
+     <link href="css/styles/notificationcansel.css" rel="stylesheet">
+     <link href="css/styles/changepassword.css" rel="stylesheet">
+     <link href="css/styles/endvisit.css" rel="stylesheet">
+     <link href="css/styles/forgetpasswordrequest.css" rel="stylesheet">
+     <link href="css/styles/home.css" rel="stylesheet">
+     <link href="css/styles/menu.css" rel="stylesheet">
+     <link href="css/styles/newpassword.css" rel="stylesheet">
+     <link href="css/styles/notification.css" rel="stylesheet">
+     <link href="css/styles/notificationsmenu.css" rel="stylesheet">
+     <link href="css/styles/patientlocationmap.css" rel="stylesheet">
+     <link href="css/styles/profile.css" rel="stylesheet">
+     <link href="css/styles/visitdetails.css" rel="stylesheet">
+     <link href="css/styles/visitshistory.css" rel="stylesheet">
+     <link href="css/styles/profileedit.css" rel="stylesheet">-->
+
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!--<script src="cordova.js"></script>-->
+     <script src="js/jquery-1.12.2.min.js"></script>
+     <!--<script src="js/bootstrap.min.js"></script>-->
+     <script src="js/jquery-ui.min.js"></script>
+     <script src="js/jquery.validate.js"></script>
+     
+         
+     <script src ="js/chosen.jquery.min.js" ></script>
+     
+     
+     <script src ="js/chosen.proto.js" ></script>
+    
+   
+    
+     
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="cordova.js"></script>
+
+    
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/controllers/homeCtrl.js"></script>
+    <script src="js/controllers/profileCtrl.js"></script>
+    <script src="js/controllers/profileEditCtrl.js"></script>
+    <script src="js/controllers/notificationCtrl.js"></script>
+    <script src="js/controllers/patientLocationMapCtrl.js"></script>
+    <script src="js/controllers/loginCtrl.js"></script>
+    <script src="js/controllers/endVisitCtrl.js"></script>
+    <script src="js/controllers/forgotPasswordRequestCtrl.js"></script>
+    <script src="js/controllers/newPasswordCtrl.js"></script>
+    <script src="js/controllers/menuCtrl.js"></script>
+    <script src="js/controllers/visitHistoryCtrl.js"></script>
+    <script src="js/controllers/visitDetailesCtrl.js"></script>
+    <script src="js/controllers/changePasswordCtrl.js"></script>
+    <script src="js/controllers/notificationMenuCtrl.js"></script>
+    <script src="js/controllers/callDetailsCtrl.js"></script>
+    <script src="js/controllers/callsHistoryCtrl.js"></script>
+    <script src="js/controllers/callNotificationCtrl.js"></script>
+    <script src="js/controllers/paymentCtrl.js"></script>
+    <script src="js/controllers/callReportCtrl.js"></script>
+    <script src="js/controllers/signupCtrl.js"></script>
+    
+
+
+
+
+
+<!-- <script src="lib/ionic/js/ionic.bundle.js"></script>
+<script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+<script src="cordova.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/angular-route/angular-route.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+<script src="lib/angular-mocks/angular-mocks.js"></script>
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/angular-moment/angular-moment.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
+<script src="lib/bootstrap-sweetalert/dist/sweetalert.min.js"></script> -->
+
+<!-- <script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/directives.js"></script> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    <script src="js/routes.js"></script>
+    
+    <script src="js/services.js"></script>
+    <script src="js/services/DoctorService.js"></script>
+    <script src="js/services/Md5Service.js"></script>
+    <script src="js/services/configService.js"></script>
+    <script src="js/services/ApiService.js"></script>    
+    <script src="js/services/WebService.js"></script>
+    <script src="js/services/allergiesService.js"></script>
+    <script src="js/services/areaService.js"></script>
+    <script src="js/services/diseasesService.js"></script>
+    <script src="js/services/investService.js"></script>
+    <script src="js/services/specService.js"></script>
+    <script src="js/services/treatService.js"></script>
+    <!-- <script src="js/services/NotificationService.js"></script> -->
+    <script src="js/services/VisitService.js"></script>
+    <script src="js/services/ProfileService.js"></script>
+    <script src="js/services/gradeService.js"></script>
+    <script src="js/services/BackButton.js"></script>
+    <script src="js/services/CallService.js"></script>
+    <script src="js/services/CardService.js"></script>
+    
+    <script src="js/directives.js"></script>
+    
+    <script src ="js/isteven-multi-select.js" ></script>
+      <script src="lib/angular-ui-select/dist/select.js"></script>
+
+    <!-- Only required for Tab projects w/ pages in multiple tabs 
+    <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
+    -->
+    
+    <!--<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>-->
+    
+     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyDt1bePwJccvfnQ_hhk2OmIDvFRpm7Mxk0&v=3&libraries=geometry"></script>
+
+     <!--
+     <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxElcZclcaSwQ5MYW2J3NsSCewCZCFS54&libraries=geometry">
+    </script>
+     -->
+  </head>
+  <body ng-app="app" animation="slide-left-right-ios7">
+  <div>
+    <div>
+        <ion-nav-bar class="bar-stable ">
+            <ion-nav-back-button class="button-icon icon ion-ios-arrow-back">Back</ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+    </div>
+</div>
+  </body>
+</html>

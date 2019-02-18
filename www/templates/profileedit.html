@@ -1,0 +1,107 @@
+<ion-view title="Profile" hide-nav-bar="false" id="page2" style="overflow: hidden">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+    <ion-nav-buttons side="left">
+        <button class="button back-button buttons button-clear header-item" ui-sref="profile">
+            <i class="icon ion-ios-arrow-back"></i> 
+        </button>
+    </ion-nav-buttons>
+    <ion-content padding="true">
+        <form name="settingForm" id="settingForm" novalidate  >
+            <div class="list">
+                <div class="item item-thumbnail-left">
+<!--                     <img ng-src="{{userdata.photo}}">
+ -->                   <img ng-click="loadImage()" ng-src="{{imgURI}}">
+                </div>
+            </div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">First Name</span>
+                    <input readonly type="text" name="User[first_name]" ng-model="userdata.FirstName">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Last Name</span>
+                    <input readonly  type="text" name="User[last_name]" ng-model="userdata.lastName"  >
+                </label>
+            </div>
+
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Gender</span>
+                    <select disabled name="User[gender]" id="gender" ng-model="userdata.gender">  
+                        <option value="1" >Female</option>
+                        <option value="2" >Male</option>
+                    </select>
+                </label> 
+            </div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="email" name="User[email]" ng-model="userdata.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" placeholder="" >
+                </label> 
+            </div>
+   <!--           <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Syndicate Number</span>
+                    <input type="tel" name="Doctor[syndicate_number]" ng-model="userdata.syndicate_number" placeholder="" >
+                </label> 
+            </div> -->
+            <div class="errorTxt"></div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Mobile</span>
+                    <input readonly type="text"  name="User[mobile]" placeholder="" ng-model="userdata.mobile" >
+                </label>  
+                <span class="error-message" ng-show="settingForm.phoneNumber.$dirty && settingForm.phoneNumber.$invalid">The phone number should be of 11 digits</span>             
+            </div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Specialty</span>
+                    <select  ng-model="userdata.specialization" multiple style="width:auto;max-width: 64%">
+                        <option ng-repeat="option in specslistchois" value="{{option.id}}" >{{option.name}}</option>
+                    </select>
+                </label>                
+            </div> 
+            <div class="list" ng-hide="!IsVisible">
+                <label class="item item-input">
+                    <span class="input-label">Grade</span>
+                    <input readonly  type="text"  name="User[grade]" placeholder="" ng-model="userdata.grade" >
+                </label>               
+            </div>
+            <div class="list" ng-show="!IsVisible" >
+                <label class="item item-input">
+                    <span class="input-label">Grade</span>
+                    <select disabled name="User[grade]" id="grade">  
+                        <option value="1" ng-selected="(userdata.grade == 'CONSULTANT') ? 'selected' : ' '">CONSULTANT</option>
+                        <option value="2" ng-selected="(userdata.grade == 'SPECIALIST') ? 'selected' : ' '">SPECIALIST</option>
+                        <option value="3" ng-selected="(userdata.grade == 'LECTURER') ? 'selected' : ' '">LECTURER</option>
+                        <option value="4" ng-selected="(userdata.grade == 'ASSISTANT PROFESSOR') ? 'selected' : ' '">ASSISTANT PROFESSOR</option>
+                        <option value="5" ng-selected="(userdata.grade == 'PROFESSOR') ? 'selected' : ' '" >PROFESSOR</option>
+                    </select>
+                </label>
+            </div>     
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Home visit Fees</span>
+                    <input type="text" name="User[rate]" placeholder="" ng-model="userdata.rate"   >
+                </label>               
+            </div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Call Fees</span>
+                    <input type="text" name="User[call_fees]" placeholder="" ng-model="userdata.call_fees"   >
+                </label>               
+            </div>
+             <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Clinic Fees</span>
+                    <input type="text" name="User[clinic_fees]" placeholder="" ng-model="userdata.clinic_fees"   >
+                </label>               
+            </div>
+            <div class="list">
+                <button  id="doctor_editing" class="button button-positive  button-block general-btn-bg-style general-btn-font-color"  
+                          ng-click="save(userdata)">Save</button>
+            </div> 
+        </form>   
+        <div id="errorsdialog" title="Errors"></div>
+    </ion-content>
+</ion-view>

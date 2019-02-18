@@ -1,0 +1,43 @@
+<ion-view title="{{visits.patient_name}}" id="confirmation">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+    <ion-nav-buttons side="left">
+    <button ui-sref="visitshistory" class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content padding="true" class="req-doc-confirm" >
+        
+       <!-- <div>DR. {{doctor_name}}</div>-->
+        <img src="{{imageUrl}}" class="rounded-img"/>
+
+
+        <div style="text-align: left">
+             <div  class="pullets">Patient Name: <span class="info">{{visits.patient_name}}</span></div>
+             <div  class="pullets">Date: <span class="info">{{visits.datetime}}</span></div>
+             <div  class="pullets">Address: <span class="info">{{address}}</span></div>
+             <div  class="pullets">Diagnosis: <span class="info">{{visits.diagnoses}}</span></div>
+             <div class="pullets" ng-repeat="item in visits.treatments">
+                 Treatment :<span class="info">{{item.name}}</span>
+                 <br>
+                 <div style="white-space: initial">
+                 Dose : <span class="info">{{item.dose}}</span> &nbsp;&nbsp; Duration :<span class="info">{{item.duration}}</span>
+                 </div> 
+             </div>
+            <div class="pullets">
+                investigations :<span class="info" style="white-space: initial" ng-repeat="invest in visits.invistigations">{{invest.name}} <span ng-hide="$last">,</span></span>
+                 
+             </div> 
+            <div class="pullets">Notes</div>
+
+            <div> 
+                <textarea ng-model="visits.memo" name="notes"   class="text-area" disabled>
+{{visits.memo}}
+                </textarea>        </div>
+            
+            
+        </div>
+
+        <br>
+        
+    </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-view title="Notifications" id="page9">
+          <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+
+      <ion-nav-buttons side="left">
+    <button ui-sref="menu.home" class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+        <ion-content  class="has-header ">
+            <ion-list>
+            <ion-item  ng-repeat="item in notificationmenu" class="list_item list-with-icon" ng-click="notificationsmenudetails('{{$index}}')" ng-class-odd="'odd'" ng-class-even="'even'">
+                <table class="list-with-icon">
+                    <tr><td class="icon-style {{(item.message_type == 1)? 'icon-style-green' :((item.message_type == 0)? 'icon-style-red' : 'icon-style-orange') }}">
+                    <li ng-hide='{{item.message_type != 1}}' class="ion-plus" style="display: inline;"></li>
+                    <li ng-hide='{{item.message_type != 2}}' class="ion-close" style="display: inline;"></li>
+</td><td class="text-td-style">
+                <div  class="text-style general-color-gray-font" ng-hide="{{item.message_type == 2}}"><span class="general-color-orange-font">{{item.patient_name}}</span><br>had made a request {{item.timediff}}</div>
+                <div  class="text-style general-color-gray-font" ng-hide='{{item.message_type != 2}}' >patient has canceled his recent request 
+                    <br><span style="font-size:90% !important ">{{item.timediff}}</span></div>
+        </td><tr>        
+                </table>
+            </ion-item>
+                </ion-list>
+        </ion-content>
+
+</ion-view>
+
+
+

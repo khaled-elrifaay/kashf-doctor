@@ -1,0 +1,138 @@
+<ion-view title="Visit Report" id="endvisit" cache-view="false" >
+
+    <ion-content class="has-header">
+<!--        <ion-nav-buttons side="left">
+            <button class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+                <i class="icon ion-ios-arrow-back"></i> 
+            </button>
+        </ion-nav-buttons>-->
+        <ion-content  class="has-header container">
+            <div class="card">
+                <div class="item item-divider">
+                    Patient Information.
+                </div>
+                <div class="item item-text-wrap">
+                    <div  class="pullets">Patient Name: <span class="info">{{patient_name}}</span></div>
+                    <div  class="pullets">Address: <span class="info">{{address}}</span></div>
+                    <div  class="pullets">Gender: <span class="info">{{(gender==1)?'Male':'Female'}}</span></div>
+                    <div  class="pullets">Mobile: <span class="info">{{mobile}}</span></div>
+                    <div  class="pullets">Payment: <span class="info">{{(payment==1)?'Cash':'credit'}}</span></div>
+                </div>
+
+            </div>
+            <!--<button id = "watchPosition">WATCH POSITION</button>-->
+
+            <!-- <h2 class="visit-report-title" >Visit Report</h2> -->
+            <div class="pullets">
+                <p><b> This report will be sent to the patient and the admin to review. </b></p>
+            </div>
+            <form name="endvisitform" id="endvisitform">
+
+                <div>
+                    <label for="diagnoses"> Diagnosis </label>
+                    <textarea rows="2" ng-model="diagnoses" required></textarea>
+                </div> 
+                <div class="">
+                    <div class="" ng-repeat="(key, input) in inputs">
+
+                        <fieldset>
+                            <label class="item item-input">
+                                <span class="input-label">Treatment</span>
+                                <input type="text" placeholder="" name="treatment" ng-model="treatments[key]['treatment']" required>
+                            </label>
+
+<!--                            <label for="treatmentSelect"> treatment </label>
+
+                            <ui-select ng-model="treatments[key]['treatment']" theme="select2" search-enabled="true" class="treatment-dropdown styledselectionclasic"  required>
+                                <ui-select-match>
+                                    <span ng-bind="$select.selected.name"></span>
+                                </ui-select-match>
+                                <ui-select-choices repeat="item in list_treatments | filter: {name: $select.search} track by item.id">
+                                    <span ng-bind="item.name"></span>
+                                </ui-select-choices>
+                            </ui-select>-->
+
+                            <label class="item item-input">
+                                <span class="input-label">Dose</span>
+                                <input type="text" placeholder="" name="dose" ng-model="treatments[key]['dose']" required>
+                            </label>
+
+
+
+                            <label class="item item-input">
+                                <span class="input-label">Duration</span>
+                                <input type="text" placeholder="" name="duration" ng-model="treatments[key]['duration']" required>
+                            </label>
+
+
+                            <button class="button button-small button-balanced add-input general-btn-bg-style general-btn-font-color" ng-if="$index == inputs.length - 1" ng-click="addInput()">
+                                <i class="icon ion-plus"></i>
+                            </button>
+                            <button class="button button-small button-assertive remove-input general-btn-bg-style general-btn-font-color" ng-if="$index != inputs.length - 1" ng-click="removeInput($index)">
+                                <i class="icon ion-minus"></i>
+                            </button>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+
+
+
+                <label for="investigationSelect"> Investigations </label>
+                <!--            <div id="investigationSelect"             
+                                 isteven-multi-select
+                                 input-model="list_investigations"
+                                 output-model="outputInvestigationsList"
+                                 button-label="icon name"
+                                 item-label="icon name maker"
+                                 tick-property="ticked"
+                                 selection-mode="multiple"
+                                 ng-model="outputInvestigationsList"
+                                 name ="investigation"
+                                 >
+                            </div>-->
+
+
+                <ui-select multiple ng-model="inv.investigations" theme="select2" search-enabled="true" class="investigaton-dropdown"  ng-disabled="disabled" style="width: 100%">
+                    <ui-select-match>{{$item.name}}</ui-select-match>
+                    <ui-select-choices repeat="item in list_investigations | filter: {name: $select.search} track by item.id">
+                        <div ng-bind-html="item.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+
+
+
+
+                <div>
+                    <label for="msg"> Additional Notes </label>
+                    <textarea rows="4" ng-model="msg"></textarea>
+                </div> 
+                <div class="pullets" ng-if="cashPayment">
+                    <label class="radio-inline info">
+                        <input type="radio" name="cash" ng-model="isChecked" ng-value="'1'" class="radio" value="1" ng-click="update(isChecked)" >Cash Payment Received
+                    </label>
+                    <label class="radio-inline info">
+                        <input type="radio" name="cash" ng-model="isChecked" ng-value="'0'" class="radio" value="0" ng-click="update(isChecked)" >Cash Payment not Received
+                    </label>
+                    <div  ng-if="isChecked==1 && workInHospital==false ">
+                        <p>Please enter your cvv (3 digit number on the back of your credit card) to pay Kashf share of this visit. </p>
+                        <label class="item item-input item-floating-label">
+                            <span class="input-label">CVV</span>
+                            <input id="cvvNumber" type="number" name="cvv" placeholder="CVV" ng-model="cvv" ng-minlength="3" ng-maxlength="3" required  value="">
+                      </label>
+                    </div>
+                </div>
+                <!-- added to display hint  -->
+                <small class="text-muted"> 
+                    * A copy of this report will be sent to the patient and the admin for a review.
+                </small>
+
+                <button class="button button-block end-visit-button general-btn-bg-style general-btn-font-color" ng-disabled="endvisitform.$invalid" ng-click="endVisit(inv, msg, treatments, isChecked, selected, diagnoses,cvv)" id="endVisitButton"> End Visit</button>
+
+            </form>
+            
+        </ion-content>
+    </ion-content>
+</ion-view>

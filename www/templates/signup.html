@@ -1,0 +1,69 @@
+<ion-view title="Signup" id="signup">
+<head>
+    <ion-content padding="true" class="form-container">
+        <div class="image-wrapper"><img src="img/login-image.png"></div>
+        <form name="signupForm" id="signupForm" novalidate>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">First Name</span>
+                    <input type="text" required name="User[first_name]" ng-model="userdata.FirstName" required >
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Last Name</span>
+                    <input type="text" name="User[last_name]" ng-model="userdata.lastName" required>
+                </label>
+            </div>
+            <div class="errorTxt"></div>
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Mobile</span>
+                    <input type="tel" name="User[mobile]" placeholder="" ng-model="userdata.mobile" maxlength="11" ng-minlength="11"
+                ng-maxlength="11" required >
+
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="email" name="User[email]" ng-model="userdata.email" placeholder="example@example.com" required>
+                </label>
+                
+                
+            </div>
+
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Syndicate Number</span>
+                    <input type="tel" name="Doctor[syndicate_number]" placeholder="" ng-model="userdata.syndicate_number" >
+
+                </label>
+            </div>
+
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Call Fees</span>
+                    <input type="number" name="Doctor[call_fees]" ng-model="userdata.call_fees">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Home Visit Fees</span>
+                    <input type="number" name="Doctor[rate]" ng-model="userdata.rate">
+                </label>
+            </div>
+             <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" name="User[password]" ng-model="userdata.password">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Confirm Password</span>
+                    <input type="password" name="User[confirm_password]" ng-model="userdata.confirm_password">
+                </label>
+            </div>
+            <button  id="doctor_signup"  class="button button-positive  button-block general-btn-font-color general-btn-bg-style" ng-disabled="signupForm.$invalid"  ng-click="signup(reg)">Sign Up</button>
+            
+        </form>
+        
+       
+        <div id="errorsdialog" title="Errors"></div>
+        <div> <a  style="font-size: .8em;" href="tel:0233335530" class="button button-positive">Click Here To Call Support </a></div>
+    </ion-content>
+</ion-view>

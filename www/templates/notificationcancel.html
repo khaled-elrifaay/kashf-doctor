@@ -1,0 +1,63 @@
+<ion-view title="" id="notification" hide-nav-bar="true">
+    <!--    <ion-nav-buttons side="left">
+            <button class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+                <i class="icon ion-ios-arrow-back"> Back</i> 
+            </button>
+        </ion-nav-buttons>-->
+    <ion-content class=" patient-request-container container">
+        <h2 class="patient-request-title" >Patient Visit Request</h2>
+
+        <div class="patient-info">
+
+            <div class="patient-name">
+                <span class="patient-name-label"> Patient Name</span>
+                <div class="patient-name-value"> {{visit.patient_name}}</div>
+            </div>
+
+            <div class="patient-location">
+                <span class="patient-location-label"> Patient Location</span>
+                <div class="patient-location-value"> {{address}}</div>
+            </div>
+
+            <div class="patient-allergies">
+                <span class="patient-allergies-label"> Patient Allergies</span>
+
+                <div class="allergy-name" ng-repeat="item in allergies">
+                    {{item}}
+                </div>
+
+            </div>
+
+            <div class="patient-diseases">
+                <span class="patient-diseases-label"> Patient Diseases</span>
+
+                <div class="disease-name" ng-repeat="item in diseases">
+                    {{item}}
+                </div>
+            </div>
+
+
+
+
+            <div class="patient-distance">This patient is {{distance}} Km away.</div>
+
+        </div>
+
+
+        
+
+    </ion-content>
+    
+    <div class="bar bar-footer bar-light patient-request-footer">
+
+            <div class="patient-request-button-container">
+                <span class="accept-button">
+                    <button class="button   button-balanced" ng-click="acceptVisit()"> Accept</button>
+                </span>
+                
+                <span class="reject-button">
+                    <button class="button   button-assertive" ng-click="rejectVisit()"> Reject</button>
+                </span>    
+            </div>    
+        </div>
+</ion-view>

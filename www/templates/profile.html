@@ -1,0 +1,50 @@
+<ion-view title="settings" hide-nav-bar="false" id="page2" >   
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-settings" ng-click="Edit()"></button>           
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+        <button ui-sref="menu.home" class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+            <i class="icon ion-ios-arrow-back"></i> 
+        </button>
+    </ion-nav-buttons>
+    <ion-content padding="false" >
+        <div  class="req-doc-confirm">
+            <div>{{visit.patient_name}}</div>
+            <img src="{{imageUrl}}" class="rounded-img"/>
+            <div style="text-align: left">
+                <div  class="pullets">first Name: <span class="info">{{userdata.FirstName}}</span></div>
+                <div  class="pullets">Last Name: <span class="info">{{userdata.lastName}}</span></div>
+                <div  class="pullets">Gender: <span class="info">{{(userdata.gender==2)?'Male':'Female'}}</span></div>
+                <div  class="pullets">Mobile <span class="info">{{userdata.mobile}}</span></div>
+                <div  class="pullets">email: <span class="info">{{userdata.email}}</span></div>
+                <div  class="pullets">Specialty:
+                    <span class="info" ng-repeat="spec in userdata.specialization" style="white-space:initial"> {{spec.name}}<span ng-hide="$last">,</span></span>
+                </div>
+                <div  class="pullets">Grade: <span class="info">{{userdata.grade}}</span></div>
+                <div  class="pullets">Home Visit Fees: <span class="info">{{userdata.fees}}</span></div>
+                <div  class="pullets">Call Fees: <span class="info">{{userdata.rate}}</span></div>
+                <div  class="pullets">Clinic Fees: <span class="info">{{userdata.clinic_fees}}</span></div>
+            </div>
+        </div>
+        <br>
+        <ion-list>
+            <ion-item   class="list_item patient-item" ui-sref="changepassword" style="background-color: #00a7cc !important;color:#fff !important;" >
+                <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;"><tr>
+                        <td style="text-align: left;vertical-align: middle;width:10%;max-width:10%;overflow: hidden;min-width: 20%"><li class="ion-locked menu-icons"></li></td>
+                    <td style="text-align: left;vertical-align: middle;max-width:80%;width: 80%;overflow: hidden;min-width: 70%"><div style="width:100%;overflow: hidden;max-width:100%;">CHANGE PASSWORD</div></td>
+                    <td style="text-align:right;vertical-align: middle;max-width:10%;width:10%;overflow: hidden;min-width: 10%"><i style="float:right;" class="icon ion-chevron-right"></i></td>
+                    </tr></table>
+            </ion-item>
+        </ion-list>
+        <ion-list>
+            <ion-item   class="list_item patient-item" ng-click="signOut()" style="background-color: #e32417;color:#fff" >
+                <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;"><tr>
+                        <td style="text-align: left;vertical-align: middle;width:10%;max-width:10%;overflow: hidden;min-width: 20%"><li class="ion-android-exit menu-icons"></li></td>
+                    <td style="text-align: left;vertical-align: middle;max-width:80%;width: 80%;overflow: hidden;min-width: 70%"><div style="width:70%;overflow: hidden;max-width:70%;">SIGNOUT</div></td>
+                    <td style="text-align:right;vertical-align: middle;max-width:10%;width:10%;overflow: hidden;min-width: 10%"><i style="float:right;" class="icon ion-chevron-right"></i></td>
+                    </tr></table>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

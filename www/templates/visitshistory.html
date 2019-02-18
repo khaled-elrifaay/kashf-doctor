@@ -1,0 +1,31 @@
+<ion-view title="History" id="historyPage" cache-view="false">
+          <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+
+    <ion-nav-buttons side="left">
+    <button class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+      <i class="icon ion-ios-arrow-back"></i> 
+    </button>
+  </ion-nav-buttons>
+    <ion-content  class="has-header ">
+        <ion-list>
+
+            <ion-item  ng-repeat="item in visits" class="list_item"    ng-class-odd="'odd'" ng-class-even="'even'" >
+             
+
+                <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;"><tr>
+                        <td style="text-align: left;vertical-align: middle;max-width:30%;width: 30%;overflow: hidden;min-width: 30%"><div style="width:100%;overflow: hidden;max-width:100%;"><div  class="">{{item.patient_name}}</div></div></td>
+                        <td style="text-align: left;vertical-align: middle;width:20%;max-width:20%;overflow: hidden;min-width: 20%"><div  class="" style="float:right" ng-if="item.payment_type==1 && item.doctorPayment==0"><button class="button button-positive" ng-click="pay(item.visit_id,'{{$index}}')" id="visit_{{item.visit_id}}">Pay</button></div></td>
+                        <td style="text-align: left;vertical-align: middle;width:20%;max-width:20%;overflow: hidden;min-width: 20%"><div  class="" style="float:right">{{item.timediff}}</div></td>
+                        <td style="text-align:right;vertical-align: middle;max-width:30%;width:30%;overflow: hidden;min-width: 30%" ng-click="visitReport('{{$index}}')"><i style="float:right;" class="icon ion-chevron-right" ></i></td>
+                    </tr></table>
+
+
+
+
+
+                  
+                <br>             
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

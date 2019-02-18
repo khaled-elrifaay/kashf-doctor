@@ -1,0 +1,42 @@
+<ion-view title="" id="page1" style='background-color: transparent !important;' class="mapview" cache-view="false">
+    
+     <ion-nav-title>
+         <img src="img/Home.png" alt="logo" height="20px">
+    </ion-nav-title>
+    <ion-content class="has-header">
+<!--<button id = "watchPosition">WATCH POSITION</button>-->
+
+<ion-toggle class="custom-toggle" id="status-toggle"  ng-model="initialstatus"  toggle-class="toggle-calm"  ng-click="statusValue(initialstatus)">Visit Status</ion-toggle>
+<ion-toggle class="custom-toggle" id="call-status-toggle"   ng-model="initialstatusCall"   toggle-class="toggle-calm"  ng-click="statusCallValue(initialstatusCall)">Call Status</ion-toggle>
+
+<div class = "card list" ng-if="card">
+    <!-- <div class = "item item-divider">
+       visit request
+    </div> -->
+   
+    <div class = "item item-text-wrap">
+       Cash visit feature will be disabled, unless you enter your credit card data from payment tab at the menu with menu logo. 
+    </div>
+</div>
+
+<!--<input ng-model="statusValue.val" type="hidden" value="{{status.status}}" id="status-toggle-value">-->
+        <ion-content id="mapContainer" class="has-header" has-bouncing="false" style="top:108px">
+        <div style="width:100%;height:100%" id="map_canvas"></div>
+        </ion-content>
+        
+    </ion-content>
+</ion-view>
+<style>
+    .mapview{
+        background-color: transparent !important;
+    }
+    .card {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    .scroll{
+        height: 100%;
+    }
+          
+    </style>

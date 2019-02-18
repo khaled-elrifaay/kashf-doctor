@@ -1,0 +1,42 @@
+<ion-view title="REQUEST" id="confirmation" hide-back-button="true">
+              <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+
+    <ion-content padding="true" class="req-doc-confirm"  >
+        <div>{{patient_name}}</div>
+        <img src="img/{{(visit.gender==1)?'Male_Avatar.png':'Female_Avatar.png'}}" class="rounded-img"/>
+
+
+        <div style="text-align: left">
+            <div  class="pullets">Patient Name: <span class="info">{{patient_name}}</span></div>
+            <div  class="pullets">Request Date: <span class="info">{{create_time}}</span></div>
+            <div  class="pullets">Address: <span class="info">{{address}}</span></div>
+            <div  class="pullets">Gender: <span class="info">{{(gender==1)?'Male':'Female'}}</span></div>
+            <!--<div  class="pullets">Mobile: <span class="info">{{visit.mobile}}</span></div>-->
+            <!--           <div  class="pullets">distanc: <span class="info">{{distanc}} km away</span></div>-->
+
+<!--            <div  class="pullets">Patient Allergies: <span class="info" ng-repeat="item in allergies"> {{item}} <span ng-hide="$last">,</span></span></div>
+
+            <div  class="pullets">Patient Diseases: <span class="info" ng-repeat="item in diseases"> {{item}} <span ng-hide="$last">,</span></span></div>-->
+
+
+<div  class="pullets">Payment: <span class="info">{{(payment==1)?'Cash':'credit'}}</span></div>
+
+
+            <div  ng-if="visit.notes !=''" class="pullets">Notes</div>
+
+            <div ng-if="visit.notes !=''"> 
+                <textarea ng-model="visit.notes" name="notes"   class="text-area" disabled>{{notes}}
+                </textarea>        </div>
+        </div>
+        <!--<div class="pullets">This Doctor is {{distanc}}km away</div>-->
+
+        <br>
+        
+
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button  button-assertive large_button" ng-click="rejectVisit()" >REJECT</button>
+
+        <button class="button  button-balanced large_button" ng-click="acceptVisit()" id="acceptVisitButton" >Accept</button>
+    </div>
+</ion-view>

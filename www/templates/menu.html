@@ -1,0 +1,42 @@
+<style>
+    .opend {
+        display: block;
+        z-index: 999;
+    }
+    .closed {
+        display: none;
+        z-index: -999;
+    }
+</style>
+<ion-side-menus  delegate-handle="sideMenu" class="menuclass">
+    <ion-side-menu-content  enable-menu-with-back-views="false"  drag-content="true" on-swipe-left="onSwipeLeft()" on-swipe-right="onSwipeRight()">
+        <ion-nav-bar class="bar-stable nav-title-slide-ios7">
+            <ion-nav-buttons side="left" id="side-menu-map" >
+                <button class="button button-icon button-clear ion-navicon"  id="side-menu-map" ng-click="toggelmenu()"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="side-menu21"></ion-nav-view>
+    </ion-side-menu-content>
+    <ion-side-menu side="left" id="side-menu21" ng-style="menuopened">
+      <ion-content padding="false" class="side-menu-left"  style="z-index: 999;background-color: #f5f5f5 !important;">
+            <ion-list>
+                <ion-item menu-toggle="left"  class='odd' style="color:#000 !important;background-color: #f5f5f5 !important;">
+                    <table class="menu-item"><tr><td style="vertical-align: middle">
+                                <img ng-src="{{imageUrl}}" class="rounded-img"/></td><td style="vertical-align: middle">{{userdata.FirstName}}&nbsp;{{userdata.lastName}}</td></tr>
+                    </table>
+                </ion-item>               
+                <ion-item ui-sref="visitshistory" menu-toggle="left"  class='odd'><div class="menu-item"><li class="ion-clock menu-icons"></li> Visits History</div></ion-item>
+                <ion-item ui-sref="callsHistory" menu-toggle="left"  class='even'>
+                    <div class="menu-item"><li class="ion-clock menu-icons"></li>Calls History</div>
+                </ion-item>
+                <ion-item ui-sref="help" menu-toggle="left"  class='odd'><div class="menu-item"><li class="ion-help-buoy menu-icons"></li>Help</div></ion-item>
+                <ion-item ui-sref="notificationsmenu" menu-toggle="left"  class='even'><div class="menu-item"><li class="ion-ios-bell menu-icons"></li>Notifications</div></ion-item>
+                <ion-item ui-sref="profile" menu-toggle="left"  class='even' style="color:#fff !important;background-color: #0087bd !important;"><li class="ion-gear-b menu-icons"></li>Settings</ion-item>
+                <ion-item  ng-hide="paymentFlage" ui-sref="payment" menu-toggle="left"  class='odd' >
+                    <div  ng-hide="paymentFlage" class="menu-item"><li ng-hide="paymentFlage" class="ion-cash menu-icons"></li>Payment</div>
+                </ion-item>
+                <ion-item ng-click="signOut()" menu-toggle="left"  class='even' style="color:#fff !important;background-color: #e32417 !important;"><div class="menu-item"><li class="ion-android-exit menu-icons"></li>Signout Me!</div></ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

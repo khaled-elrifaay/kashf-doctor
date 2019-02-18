@@ -1,0 +1,183 @@
+<ion-view title="Payment" id="payment">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+    <ion-nav-buttons side="left">
+        <button  class="button back-button buttons button-clear header-item" ng-click="goBackview()">
+            <i class="icon ion-ios-arrow-back"></i> 
+        </button>
+    </ion-nav-buttons>
+    <ion-content padding="true" class="has-header container">
+        <div ng-show="paymenttypes">
+            Payment Options
+            <div class="list">
+                <ion-item class="list_item">
+                    <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;"><tr>
+                            <td style="text-align: center;vertical-align: middle;max-width:10%;width: 10%;overflow: hidden;min-width: 10%">
+                                <i class="fa fa-money fa-3" aria-hidden="true"></i>
+                            </td>
+                            <td style="text-align: left;vertical-align: middle;width:40%;max-width:40%;overflow: hidden;min-width: 40%">
+                                Cash
+                            </td>
+                            <td style="text-align:right;vertical-align: middle;max-width:50%;width:50%;overflow: hidden;min-width: 50%">
+
+                            </td>
+                        </tr></table>
+                    <br>             
+                </ion-item>
+                <ion-item class="list_item">
+                    <table  style="width:90%;border: none;border-spacing:0px;border-collapse: collapse;">
+                        <tr>
+                            <td ng-click="showCardData()" style="text-align: center;vertical-align: middle;max-width:10%;width: 10%;overflow: hidden;min-width: 10%">
+                                <i class="fa fa-credit-card fa-3" aria-hidden="true"></i>
+                            </td>
+                            <td ng-click="showCardData()" style="text-align: left;vertical-align: middle;width:30%;overflow: hidden;">
+                                Credit Card
+                            </td>
+                            <td ng-click="showAdd()" style="text-align:right;vertical-align: middle;width:70%;overflow: hidden">
+                                <div    class="button button-positive  button-block general-btn-font-color general-btn-bg-style" >Add Card</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <div style="white-space: initial;">
+                                You will be asked to add your CVV (3 digits on the back of your credit card) to complete each of your future payments.<br />
+                                Visa Electron cards are not accepted, only credit or debit cards are accepted.<br />
+                                50 LE will be discounted once for each credit card added to receive cash visits. 
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" style="width: 100%">
+                                <div ng-show="carddata">
+                                    <div class="list">
+                                        <ion-item class="list_item" ng-repeat="card in CardsDataBig">
+                                            <table  style="width:100%;border: none;border-spacing:0px;border-collapse: collapse;">
+                                                <tr>
+                                                    <td style="text-align: center;vertical-align: middle;max-width:10%;width: 10%;overflow: hidden;min-width: 10%">
+                                                        <i class="fa {{GetCardIcon(card.card_type)}} fa-3" aria-hidden="true"></i>
+                                                    </td>
+                                                    <td style="text-align: left;vertical-align: middle;width:60%;max-width:60%;overflow: hidden;min-width: 60%">
+                                                        {{card.c_pan}}
+                                                    </td>
+                                                    <td style="text-align:right;vertical-align: middle;max-width:30%;width:30%;overflow: hidden;min-width: 30%">
+                                                        {{(card.parimary == 2)? 'Primary' : ''}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td ng-click="showEdit(card)" colspan="3" style="text-align: center">
+                                                        <div  class="button button-positive  button-block general-btn-font-color general-btn-bg-style"  >Edit Card</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </ion-item>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </ion-item>
+               
+
+            </div>
+        </div>
+
+        <div ng-show="cardformAdd">
+            <div class="list">
+                <label class="item item-input">
+                    Add Card
+                </label>
+            </div>
+            <form class="list" id="CardFormAdd" name="CardFormAdd" novalidate>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Credit Card</span>
+                        <input type="number" placeholder="Credit Card Number" name="cardnumber" ng-model="userdata.cardnumber" required class="phonebg input" >
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Card Holder Name</span>
+                        <input type="text" placeholder="Card Holder Name" name="cardholder_name" ng-model="userdata.cardholder_name" required class="phonebg input" >
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input" style="display:block">
+                        <span class="input-label" style="float:left;display:block">CVV</span>
+                        <input type="tel" placeholder="CVV" name="cvv" ng-model="userdata.cvv" required class="lockbg input" style="width: 65%;" maxlength="3" ng-minlength="3"
+                ng-maxlength="3">
+                        <div style="clear: both;"></div>
+                        <div style="font-size:0.5em;white-space: initial">The 3 digit number on the back of your card.</div>
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Expiry Year</span>
+                        <input type="tel" placeholder="Expiry Year" name="expyear" ng-model="userdata.expyear" required class="lockbg input" maxlength="2" ng-minlength="2"
+                ng-maxlength="2" >
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Expiry Month</span>
+                        <input type="tel" placeholder="Expiry Month" name="expmonth" ng-model="userdata.expmonth" required class="lockbg input" maxlength="2" ng-minlength="2"
+                ng-maxlength="2">
+                    </label>
+                </div>
+                <a id="button3"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-disabled="CardFormAdd.$invalid" ng-click="getFromCardData(null)" >Add Card</a>
+                <br><br>
+                <a id="button333"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-click="showBack()" >Back</a>
+
+
+            </form>
+        </div>
+
+        <div ng-show="cardformSecure" class="overflow-scroll scroll">
+            <iframe id="cardformSecureIframe" ng-src="{{setIframeUrl()}}" ng-load="{{getIframeUrl(this)}}" class="overflow-scroll scroll">
+                
+            </iframe>
+        </div>
+
+        <div ng-show="cardformEdit">
+            <!--            <div class="list">
+                <label class="item item-input">
+                    Edit Card
+                </label>
+            </div>
+            <form class="list" id="CardFormEdit" name="CardFormEdit">
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Credit Card</span>
+                        <input type="number" placeholder="Credit Card Number" name="cardnumber" ng-model="userdata.cardnumber" required class="phonebg input">
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">CVV</span>
+                        <input type="number" placeholder="CVV" name="cvv" ng-model="userdata.cvv" required class="lockbg input" >
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Expiry Year</span>
+                        <input type="number" placeholder="Expiry Day" name="expyear" ng-model="userdata.expyear" required class="lockbg input" >
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input">
+                        <span class="input-label">Expiry Month</span>
+                        <input type="number" placeholder="Expiry Month" name="expmonth" ng-model="userdata.expmonth" required class="lockbg input" >
+                    </label>
+                </div>
+                <a id="button3"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-disabled="CardFormEdit.$invalid" ng-click="getFromCardData(true)" >Edit Card</a>
+                <br><br>-->
+                <a id="button333"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-click="makeCardPrim()" >Make Primary</a>
+            <br><br>
+                <a id="button333"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-click="deleteCardLocal()" >Delete Card</a>
+
+                <br><br>
+                <a id="button333"  class="button  button-block button-link general-btn-font-color general-btn-bg-style" ng-click="showBack()" >Back</a>
+
+
+            </form>
+        </div>
+    </ion-content>
+</ion-view>

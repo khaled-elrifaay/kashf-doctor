@@ -1,0 +1,31 @@
+<ion-view title="Login" id="login" hide-nav-bar="true" class="login-screen">
+    <ion-content padding="true" class="has-header">
+        
+        <div id="login-logo"></div>
+        <form class="list" id="doctorloginform" name="doctorloginform" novalidate>
+            <ion-list>
+                <label class="item item-input mobile-input">
+                   <!-- <span class="input-label">Mobile Number</span>-->
+                   <input placeholder="Mobile Number&nbsp;&nbsp;&nbsp;&nbsp;" type="tel" placeholder="" name="mobile" ng-model="userdata.mobile" required  class="phonebg input">
+                </label>
+                <label class="item item-input">
+                   <!-- <span class="input-label">Password</span> -->
+                    <input placeholder="********" type="password" placeholder="" name="password" ng-model="userdata.password" required class="lockbg input">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 25px;"></div>
+            <button  id="login-button3"  class="button button-positive  button-block general-btn-bg-style general-btn-font-color" ng-disabled="doctorloginform.$invalid" ng-click="login(userdata)" >Log in</button>
+            <div class="forgot-your-password general-color-gray-font"><a href="#/forgetpasswordrequest" class="general-color-gray-font"><span class="general-color-gray-font">Forgot your Password?</span></a></div>
+            <br/>
+            <div class="sign-up general-color-gray-font">Don't have an account ?<a ui-sref="signup" class="general-color-orange-font">&nbsp;Sign Up</a></div>
+            <!--<div class="forgot-your-password general-color-gray-font">To create a new account you have to register through the website <a href="https://kashf247.com/" style="color: blue"> &nbsp;www.kashf247.com</a></div>-->
+            <div id="errorsdialog" title="Error"></div>
+        </form>
+        <div><a  style="font-size: .8em;"href="tel:+20233335530" class="button button-positive">Click Here To Call Support </a></div>
+<!--        <img ng-show="imgURI !== undefined" ng-src="{{imgURI}}">
+        <img ng-show="imgURI === undefined" ng-src="http://placehold.it/300x300">
+        <ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+        <button ng-click="takePicture()" class="button ">Take Photo </button>
+        <button class = "button" ng-click = "choosePhoto()">Open Gallery</button>-->
+    </ion-content>
+</ion-view>

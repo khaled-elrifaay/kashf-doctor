@@ -1,0 +1,26 @@
+<ion-view title="REQUEST CALL" id="confirmation" hide-back-button="true">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+
+    <ion-content padding="true" class="req-doc-confirm"  >
+        <div>{{patient_name}}</div>
+        <img src="img/{{(gender==1)?'Male_Avatar.png':'Female_Avatar.png'}}" class="rounded-img"/>
+
+
+        <div style="text-align: left">
+            <div  class="pullets">Patient Name: <span class="info">{{patient_name}}</span></div>
+            <div  class="pullets">Request Date: <span class="info">{{create_time}}</span></div>
+            <div  class="pullets">Gender: <span class="info">{{(gender==1)?'Male':'Female'}}</span></div>
+            <div  class="pullets">Payment: <span class="info">{{(payment==1)?'Cash':'credit'}}</span></div>
+
+        </div>
+       
+        <br>
+        
+
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-assertive large_button" ng-click="rejectCall()" >REJECT</button>
+
+        <button class="button button-balanced large_button" ng-click="acceptCall()" id="acceptCallButton">Accept</button>
+    </div>
+</ion-view>

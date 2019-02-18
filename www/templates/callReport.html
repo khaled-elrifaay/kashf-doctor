@@ -1,0 +1,30 @@
+<ion-view title="CALL Report" id="confirmation" hide-back-button="true">
+    <ion-nav-bar class="bar bar-clear"></ion-nav-bar>
+
+    <ion-content padding="true" class="req-doc-confirm"  >
+        <div>{{call.patient_name}}</div>
+        <img src="img/{{(call.gender==1)?'Male_Avatar.png':'Female_Avatar.png'}}" class="rounded-img"/>
+
+
+        <div style="text-align: left">
+            <div  class="pullets">Patient Name: <span class="info">{{call.patient_name}}</span></div>
+           
+
+        </div >
+       <div class="pullets" style="text-align: left">Call Status 
+            <label class="radio-inline info">
+                <input type="radio" name="callStatus" ng-model="callStatus" ng-value="'1'" class="radio" value="1"  ng-click="update(callStatus)">Done
+            </label>
+            <label class="radio-inline info">
+                <input type="radio" name="callStatus" ng-model="callStatus" ng-value="'0'" class="radio" value="0" ng-click="update(callStatus)" >Not Done
+            </label></div>
+        
+        
+
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-assertive large_button" ng-click="sendReport()" >Send Report</button>
+
+        
+    </div>
+</ion-view>

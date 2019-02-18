@@ -1,0 +1,18 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 21, 2016, 1:29:40 PM
+    Author     : mairedaatta
+*/
+
+@font-face {
+    font-family: 'HelveticaBold';
+    src: url('Fonts/HELVETICANEUECE75BOLD.eot');
+    src: url('Fonts/HELVETICANEUECE75BOLD.eot') format('embedded-opentype'),
+         url('Fonts/HELVETICANEUECE75BOLD.woff') format('woff'),
+         url('Fonts/HELVETICANEUECE75BOLD.ttf') format('truetype'),
+         url('Fonts/HELVETICANEUECE75BOLD.svg#HelveticaBold') format('svg');
+}
